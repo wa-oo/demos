@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.common.Common;
+import com.example.dao.ReadExcelDao;
 import com.example.domain.Student;
 import com.example.util.DBUtil;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class SaveDataDBService {
 
     public void save() throws IOException, SQLException {
-        ReadExcelService xlsMain = new ReadExcelService();
+        ReadExcelDao xlsMain = new ReadExcelDao();
         Student student = null;
         List<Student> list = xlsMain.readXls();
 

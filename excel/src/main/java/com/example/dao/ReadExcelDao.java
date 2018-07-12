@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.dao;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  * 读取Excel源文件
  */
-public class ReadExcelService {
+public class ReadExcelDao {
     public List<Student> readXls() throws IOException {
         InputStream is = new FileInputStream(Common.EXCEL_PATH);
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(is);

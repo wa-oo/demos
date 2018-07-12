@@ -9,7 +9,7 @@ public class Common {
     public static final String PASSWORD = "root";
     public static final String IP = "127.0.0.1";
     public static final String PORT = "3306";
-    public static final String URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DB_NAME;
+    public static final String URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DB_NAME+"?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 
     // common
     public static final String EXCEL_PATH = "excel/src/main/resources/lib/student.xlsx";

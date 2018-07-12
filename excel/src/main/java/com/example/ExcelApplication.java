@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.service.OutputExcelService;
 import com.example.service.SaveDataDBService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +17,13 @@ public class ExcelApplication {
 		/**
 		 * excel导入
 		 */
-		SaveDataDBService saveDataDB = new SaveDataDBService();
-		saveDataDB.save();
+//		SaveDataDBService saveDataDB = new SaveDataDBService();
+//		saveDataDB.save();
+
+		/**
+		 * Excel导出
+		 */
+		OutputExcelService outputExcel = new OutputExcelService();
+		outputExcel.outputExcel();
 	}
 }
