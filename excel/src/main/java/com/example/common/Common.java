@@ -12,7 +12,7 @@ public class Common {
     public static final String URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DB_NAME;
 
     // common
-    public static final String EXCEL_PATH = "src/main/resources/lib/student.xlsx";
+    public static final String EXCEL_PATH = "excel/src/main/resources/lib/student.xlsx";
 
     // sql
     public static final String INSERT_STUDENT_SQL = "insert into student_info(no, name, age, score) values(?, ?, ?, ?)";
