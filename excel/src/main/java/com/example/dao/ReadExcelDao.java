@@ -19,7 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class ReadExcelDao {
     public List<Student> readXls() throws IOException {
-        InputStream is = new FileInputStream(Common.EXCEL_PATH);
+        InputStream is = new FileInputStream(Common.EXCEL_SAVE_PATH);
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(is);
         Student student = null;
         List<Student> list = new ArrayList<Student>();

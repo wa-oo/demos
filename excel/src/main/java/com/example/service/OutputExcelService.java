@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import static com.example.common.Common.EXCEL_OUTPUT_PATH;
+
 /**
  * 输出Excel文件
  */
@@ -58,7 +60,7 @@ public class OutputExcelService {
         }
 
         //指定文件的名称和地址
-        FileOutputStream output=new FileOutputStream("d:\\student.xlsx");
+        FileOutputStream output=new FileOutputStream(EXCEL_OUTPUT_PATH);
 
         //输出
         wb.write(output);
