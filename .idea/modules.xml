@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/demos.iml" filepath="$PROJECT_DIR$/demos.iml" />
       <module fileurl="file://$PROJECT_DIR$/design_pattern/design_pattern.iml" filepath="$PROJECT_DIR$/design_pattern/design_pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/excel/excel.iml" filepath="$PROJECT_DIR$/excel/excel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_mail/java_mail.iml" filepath="$PROJECT_DIR$/java_mail/java_mail.iml" />
     </modules>
   </component>
 </project>
