@@ -9,10 +9,13 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] array1 = new int[]{5,8,4,6,3,9,2,1,7};
         int[] array2 = new int[]{5,8,4,6,3,9,2,1,7};
+        int[] array3 = new int[]{5,8,4,6,3,9,2,1,0,7};
         sort1(array1);
         sort2(array2);
+        sort3(array3);
         System.out.println(Arrays.toString(array1));
         System.out.println(Arrays.toString(array2));
+        System.out.println(Arrays.toString(array3));
     }
 
     /**
@@ -55,6 +58,46 @@ public class BubbleSort {
                     isSorted = false;
                 }
             }
+            if (isSorted) {
+                break;
+            }
+        }
+    }
+
+    /**
+     * sortBorder就是无序数列的边界
+     * 每一轮排序过程中,sortBorder之后的元素就不需要比较了,因为是有序的
+     * @param array
+     */
+    private static void sort3(int array[]){
+        int tmp = 0;
+
+        //记录最后一次交换的位置
+        int lastExchangeIndex = 0;
+
+        //无序数列的边界,每次比较只需要比到这里为止
+        int sortBorder = array.length-1;
+
+        for (int i = 0; i < array.length; i++) {
+
+            //有序标记,每一轮的初始是ture
+            boolean isSorted = true;
+
+            for (int j = 0; j < sortBorder; j++) {
+
+                if (array[j] > array[j+1]){
+                    tmp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = tmp;
+
+                    //有元素交换,所以不是有序,标记变为false
+                    isSorted = false;
+
+                    //把无序数列的边界更新为最后一次交换元素的位置
+                    lastExchangeIndex = j;
+                }
+            }
+            sortBorder = lastExchangeIndex;
             if (isSorted) {
                 break;
             }
