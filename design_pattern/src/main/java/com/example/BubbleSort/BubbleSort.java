@@ -7,9 +7,10 @@ import java.util.Arrays;
  */
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] array1 = new int[]{5,8,4,6,3,9,2,1,7};
-        int[] array2 = new int[]{5,8,4,6,3,9,2,1,7};
-        int[] array3 = new int[]{5,8,4,6,3,9,2,1,0,7};
+
+        int[] array1 = new int[]{5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7};
+        int[] array2 = new int[]{5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7};
+        int[] array3 = new int[]{5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7,5,8,4,6,3,9,2,1,0,7};
         sort1(array1);
         sort2(array2);
         sort3(array3);
@@ -25,6 +26,8 @@ public class BubbleSort {
      * @version 1.0
      */
     private static void sort1(int array[]){
+        // 当前时间对应的毫秒数
+        long startMili=System.currentTimeMillis();
         int tmp = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
@@ -35,6 +38,8 @@ public class BubbleSort {
                 }
             }
         }
+        long endMili=System.currentTimeMillis();
+        System.out.println("总耗时为："+(endMili-startMili)+"毫秒");
     }
 
     /**
@@ -45,9 +50,11 @@ public class BubbleSort {
      * @version 2.0
      */
     private static void sort2(int array[]){
+        // 当前时间对应的毫秒数
+        long startMili=System.currentTimeMillis();
         int tmp = 0;
         for (int i = 0; i < array.length; i++) {
-            //有序标记,每一轮的初始是ture
+            //有序标记,每一轮的初始是true
             boolean isSorted = true;
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j+1]){
@@ -62,6 +69,8 @@ public class BubbleSort {
                 break;
             }
         }
+        long endMili=System.currentTimeMillis();
+        System.out.println("总耗时为："+(endMili-startMili)+"毫秒");
     }
 
     /**
@@ -70,6 +79,9 @@ public class BubbleSort {
      * @param array
      */
     private static void sort3(int array[]){
+        // 当前时间对应的毫秒数
+        long startMili=System.currentTimeMillis();
+
         int tmp = 0;
 
         //记录最后一次交换的位置
@@ -80,7 +92,7 @@ public class BubbleSort {
 
         for (int i = 0; i < array.length; i++) {
 
-            //有序标记,每一轮的初始是ture
+            //有序标记,每一轮的初始是true
             boolean isSorted = true;
 
             for (int j = 0; j < sortBorder; j++) {
@@ -97,10 +109,14 @@ public class BubbleSort {
                     lastExchangeIndex = j;
                 }
             }
+
             sortBorder = lastExchangeIndex;
             if (isSorted) {
                 break;
             }
         }
+
+        long endMili=System.currentTimeMillis();
+        System.out.println("总耗时为："+(endMili-startMili)+"毫秒");
     }
 }
