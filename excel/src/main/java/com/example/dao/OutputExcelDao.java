@@ -1,15 +1,12 @@
 package com.example.dao;
 
+import com.example.common.Common;
 import com.example.domain.Student;
 import com.example.util.DBUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.common.Common.SELECT_STUDENT_ALL_SQL;
 
 /**
  * 获取数据库信息
@@ -22,7 +19,7 @@ public class OutputExcelDao {
 
         try {
 
-            ResultSet rs = DBUtil.selectAll(SELECT_STUDENT_ALL_SQL);
+            ResultSet rs = DBUtil.selectAll(Common.SELECT_STUDENT_ALL_SQL);
 
             while (rs.next()) {
                 Student student = new Student();
