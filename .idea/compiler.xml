@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demos" />
+        <module name="design_pattern" />
         <module name="excel" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demos" target="1.5" />
+      <module name="design_pattern" target="1.8" />
       <module name="excel" target="1.8" />
     </bytecodeTargetLevel>
   </component>
