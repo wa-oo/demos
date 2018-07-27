@@ -14,6 +14,7 @@ public class Common {
     // path
     public static final String EXCEL_SAVE_PATH = "excel/src/main/resources/lib/student01.xlsx";
     public static final String EXCEL_OUTPUT_PATH = "excel/src/main/resources/lib/student02.xlsx";
+    public static final String EXCEL_OUTPUT_PATH1 = "D:/模板.xlsx";
 
     // sql
     public static final String INSERT_STUDENT_SQL = "insert into student_info(no, name, age, score) values(?, ?, ?, ?)";
