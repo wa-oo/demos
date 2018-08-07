@@ -87,22 +87,8 @@ public class DBUtil {
             e.printStackTrace();
         } finally {
 
-            /**
-             * 报错 Operation not allowed after ResultSet closed
-             */
-//            if (rs != null) {
-//                rs.close();
-//            }
-//            if (ps != null) {
-//                ps.close();
-//            }
-//            if (conn != null) {
-//                conn.close();
-//            }
         }
         return rs;
     }
-
-
 
 }
