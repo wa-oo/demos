@@ -5,10 +5,8 @@ import com.example.domain.UserInfo;
 import com.example.utils.DecriptUtil;
 import com.example.utils.GetPostUtil;
 import com.example.utils.GetPropertiesUtil;
-import com.example.utils.WeixinUtil;
 import net.sf.json.JSON;
 import net.sf.json.JSONObject;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
