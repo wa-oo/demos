@@ -2,24 +2,22 @@ package com.example.utils;
 
 import com.example.domain.AccessToken;
 import com.example.demo.domain.UserInfo;
-import com.example.demo.domain.menu.Button;
-import com.example.demo.domain.menu.ClickButton;
-import com.example.demo.domain.menu.Menu;
-import com.example.demo.domain.menu.ViewButton;
+import com.example.domain.menu.Button;
+import com.example.domain.menu.ClickButton;
+import com.example.domain.menu.Menu;
+import com.example.domain.menu.ViewButton;
 import net.sf.json.JSON;
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -36,54 +34,9 @@ import java.util.Map;
 
 public class WeixinUtil {
 
-
-    // 获取access_token的接口地址（GET） 限200（次/天）
-    public final static String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
     // 创建菜单
-    public final static String CREATE_MENU_URL = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
-    // 存放：1.token，2：获取token的时间,3.过期时间
-    public final static Map<String,Object> accessTokenMap = new HashMap<String,Object>();
-
-    /**
-     * GET请求
-     * @param url
-     * @return
-     * @throws IOException
-     */
-    public static JSONObject doGetStr(String url) throws IOException {
-        DefaultHttpClient httpClient = new DefaultHttpClient();
-        HttpGet httpGet = new HttpGet(url);
-
-        //接受变量
-        JSONObject jsonObject = null;
-        HttpResponse httpResponse = httpClient.execute(httpGet);
-        HttpEntity httpEntity = httpResponse.getEntity();
-        if (httpEntity != null){
-            String result = EntityUtils.toString(httpEntity,"UTF-8");
-            jsonObject = JSONObject.fromObject(result);
-        }
-        return jsonObject;
-    }
-
-    /**
-     * POST请求
-     * @param url
-     * @param outStr
-     * @return
-     * @throws IOException
-     */
-    public static JSONObject doPostStr(String url, JSONObject outStr) throws IOException {
-        DefaultHttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(url);
-        JSONObject jsonObject = null;
-        httpPost.setEntity(new StringEntity(String.valueOf(outStr),"UTF-8"));
-        HttpResponse httpResponse = httpClient.execute(httpPost);
-        String result = EntityUtils.toString(httpResponse.getEntity(),"UTF-8");
-        jsonObject = JSONObject.fromObject(result);
-        return jsonObject;
-    }
-
-
+    @Value("wx.createMenuUrl")
+    public static String CREATE_MENU_URL;
 
     /**
      * 组装菜单
@@ -131,7 +84,7 @@ public class WeixinUtil {
     public static int createMenu(String accessToken,String menu) throws IOException {
         int result = 0;
         String url = CREATE_MENU_URL.replace("ACCESS_TOKEN",accessToken);
-        JSONObject jsonObject = doPostStr(url, JSONObject.fromObject(menu));
+        JSONObject jsonObject = GetPostUtil.doPostStr(url, JSONObject.fromObject(menu));
         if (jsonObject != null) {
             result = jsonObject.getInt("errcode");
         }
@@ -248,38 +201,6 @@ public class WeixinUtil {
         System.out.println("result---" + result);
         return result;
 
-    }
-
-    /**
-     * 获取公众号关注的用户openid
-     * @return
-     */
-    public List<String> getUserOpenId(String access_token)//, String nextOpenid
-    {
-        // String path = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid=NEXT_OPENID";
-        String path = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN";
-        path = path.replace("ACCESS_TOKEN", access_token);//.replace("NEXT_OPENID", nextOpenid)
-        System.out.println("path:" + path);
-
-        List<String> result = null;
-        try
-        {
-            JSON strResp = WeixinUtil.doGetStr(path);
-            System.out.println(strResp);
-
-            JSONObject jasonObject = JSONObject.fromObject(strResp);
-            Map map = (Map)jasonObject;
-            Map tmapMap = (Map) map.get("data");
-
-            result = (List<String>) tmapMap.get("openid");
-
-        } catch (IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return result;
     }
 
     /**
