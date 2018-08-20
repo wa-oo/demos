@@ -29,6 +29,7 @@
         <option value="$PROJECT_DIR$/converter/pom.xml" />
         <option value="$PROJECT_DIR$/time/pom.xml" />
         <option value="$PROJECT_DIR$/linux_io/pom.xml" />
+        <option value="$PROJECT_DIR$/weixin/pom.xml" />
       </list>
     </option>
   </component>
