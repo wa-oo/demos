@@ -2,6 +2,7 @@ package com.example.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
 /**
  * 加密方法
@@ -30,5 +31,18 @@ public class DecriptUtil {
             e.printStackTrace();
         }
         return "";
+    }
+
+    //排序方法
+    public static String sort(String token, String timestamp, String nonce) {
+        String[] strArray = {token, timestamp, nonce};
+        Arrays.sort(strArray);
+
+        StringBuilder sbuilder = new StringBuilder();
+        for (String str : strArray) {
+            sbuilder.append(str);
+        }
+
+        return sbuilder.toString();
     }
 }

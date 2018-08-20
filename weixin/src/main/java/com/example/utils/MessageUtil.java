@@ -1,8 +1,5 @@
 package com.example.utils;
 
-import com.example.demo.domain.News;
-import com.example.demo.domain.NewsMessage;
-import com.example.demo.domain.TextMassage;
 import com.thoughtworks.xstream.XStream;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -64,26 +61,26 @@ public class MessageUtil {
      * @param textMassage
      * @return
      */
-    public static String textMessageToXml(TextMassage textMassage){
-        XStream xStream = new XStream();
-        //将消息头设置为xml
-        xStream.alias("xml",textMassage.getClass());
-        return xStream.toXML(textMassage);
-    }
+//    public static String textMessageToXml(TextMassage textMassage){
+//        XStream xStream = new XStream();
+//        //将消息头设置为xml
+//        xStream.alias("xml",textMassage.getClass());
+//        return xStream.toXML(textMassage);
+//    }
 
     /**
      * 拼接字符
      * @return
      */
-    public static String initText(String toUserName,String fromUserName,String content){
-        TextMassage text = new TextMassage();
-        text.setFromUserName(toUserName);
-        text.setToUserName(fromUserName);
-        text.setMsgType(MessageUtil.MESSAGE_TEXT);
-        text.setCreateTime(new Date().getTime());
-        text.setContent(content);
-        return textMessageToXml(text);
-    }
+//    public static String initText(String toUserName,String fromUserName,String content){
+//        TextMassage text = new TextMassage();
+//        text.setFromUserName(toUserName);
+//        text.setToUserName(fromUserName);
+//        text.setMsgType(MessageUtil.MESSAGE_TEXT);
+//        text.setCreateTime(new Date().getTime());
+//        text.setContent(content);
+//        return textMessageToXml(text);
+//    }
 
     /**
      * 主菜单
@@ -110,46 +107,46 @@ public class MessageUtil {
         return sb.toString();
     }
 
-    /**
-     * 图文消息转为xml
-     * @param newsMessage
-     * @return
-     */
-    public static String newsMessageToXml(NewsMessage newsMessage){
-        XStream xStream = new XStream();
-        //将消息头设置为xml
-        xStream.alias("xml",newsMessage.getClass());
-        xStream.alias("item",new News().getClass());
-        return xStream.toXML(newsMessage);
-    }
+//    /**
+//     * 图文消息转为xml
+//     * @param newsMessage
+//     * @return
+//     */
+//    public static String newsMessageToXml(NewsMessage newsMessage){
+//        XStream xStream = new XStream();
+//        //将消息头设置为xml
+//        xStream.alias("xml",newsMessage.getClass());
+//        xStream.alias("item",new News().getClass());
+//        return xStream.toXML(newsMessage);
+//    }
 
-    /**
-     * 图文消息的组装
-     * @param toUserName
-     * @param fromUserName
-     * @return
-     */
-    public static String initNewsMessage(String toUserName,String fromUserName){
-        String message = null;
-        List<News> newsList = new ArrayList<News>();
-        NewsMessage newsMessage = new NewsMessage();
-
-        News news = new News();
-        news.setTitle("Allen");
-        news.setDescription("Allen是English name");
-        news.setPicUrl(cdata("http://95b8e09c.ngrok.io/images/image.jpg"));
-        news.setUrl(cdata("github.com/wangtao-Allen/"));
-        newsList.add(news);
-        newsMessage.setToUserName(cdata(fromUserName));
-        newsMessage.setFromUserName(cdata(toUserName));
-        newsMessage.setCreateTime(new Date().getTime());
-        newsMessage.setMsgType(cdata(MESSAGE_NEWS));
-        newsMessage.setArticle(newsList);
-        newsMessage.setArticleCount(newsList.size());
-
-        message = newsMessageToXml(newsMessage);
-        return message;
-    }
+//    /**
+//     * 图文消息的组装
+//     * @param toUserName
+//     * @param fromUserName
+//     * @return
+//     */
+//    public static String initNewsMessage(String toUserName,String fromUserName){
+//        String message = null;
+//        List<News> newsList = new ArrayList<News>();
+//        NewsMessage newsMessage = new NewsMessage();
+//
+//        News news = new News();
+//        news.setTitle("Allen");
+//        news.setDescription("Allen是English name");
+//        news.setPicUrl(cdata("http://95b8e09c.ngrok.io/images/image.jpg"));
+//        news.setUrl(cdata("github.com/wangtao-Allen/"));
+//        newsList.add(news);
+//        newsMessage.setToUserName(cdata(fromUserName));
+//        newsMessage.setFromUserName(cdata(toUserName));
+//        newsMessage.setCreateTime(new Date().getTime());
+//        newsMessage.setMsgType(cdata(MESSAGE_NEWS));
+//        newsMessage.setArticle(newsList);
+//        newsMessage.setArticleCount(newsList.size());
+//
+//        message = newsMessageToXml(newsMessage);
+//        return message;
+//    }
 
     public static String cdata(String str){
         String s = PREFIX_CDATA+str+SUFFIX_CDATA;
