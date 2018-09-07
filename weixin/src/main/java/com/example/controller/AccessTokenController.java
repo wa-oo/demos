@@ -52,10 +52,15 @@ public class AccessTokenController {
     @RequestMapping("/h")
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("开始签名校验");
+
         String signature = request.getParameter("signature");
+        System.out.println("signature:==="+signature);
         String timestamp = request.getParameter("timestamp");
+        System.out.println("timestamp:==="+timestamp);
         String nonce = request.getParameter("nonce");
+        System.out.println("nonce:==="+nonce);
         String echostr = request.getParameter("echostr");
+        System.out.println("echostr:==="+echostr);
 
         ArrayList<String> array = new ArrayList<String>();
         array.add(signature);
@@ -69,7 +74,7 @@ public class AccessTokenController {
         //校验签名
         if (mytoken != null && mytoken != "" && mytoken.equals(signature)) {
             System.out.println("签名校验通过。");
-            response.getWriter().println(echostr); //如果检验成功输出echostr，微信服务器接收到此输出，才会确认检验完成。
+            response.getWriter().println("echostr:==="+echostr); //如果检验成功输出echostr，微信服务器接收到此输出，才会确认检验完成。
         } else {
             System.out.println("签名校验失败。");
         }

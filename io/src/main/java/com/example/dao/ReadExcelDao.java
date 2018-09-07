@@ -35,16 +35,10 @@ public class ReadExcelDao {
             for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
                 Row row = sheet.getRow(rowNum);
                 if (row != null) {
-                    student = new Student();
-                    Cell no = row.getCell(0);
-                    Cell name = row.getCell(1);
-                    Cell age = row.getCell(2);
-                    Cell score = row.getCell(3);
-                    student.setNo(ExamineUtil.examine(getValue(no)));
-                    student.setName(ExamineUtil.examine(getValue(name)));
-                    student.setAge(ExamineUtil.examine(getValue(age)));
-                    student.setScore(Float.valueOf(ExamineUtil.examine(getValue(score))));
-                    list.add(student);
+
+                    System.out.println(getValue(1));
+
+
                 }
             }
         }

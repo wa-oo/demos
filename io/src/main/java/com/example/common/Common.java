@@ -21,4 +21,10 @@ public class Common {
     public static final String UPDATE_STUDENT_SQL = "update student_info set no = ?, name = ?, age= ?, score = ? where id = ? ";
     public static final String SELECT_STUDENT_ALL_SQL = "select id,name from student_info";
     public static final String SELECT_STUDENT_SQL = "select * from student_info where name like ";
+
+    public static final String SELECT_City_Name = "select id,city_name from t_psms_address where 1=1 ";
+    public static final String SELECT_Place_Name = "select id,place_name from t_psms_address where 1=1 ";
+    public static final String SELECT_Province_Name = "select DISTINCT province_name from t_psms_address where 1=1 ";
+    public static final String UPDATE_City_Name = "UPDATE t_psms_address SET city_name=? where id=? ";
+    public static final String EXCEL_SAVE_PATH = "D:/生产安全事故应急预案备案.xlsx";
 }

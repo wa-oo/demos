@@ -10,6 +10,7 @@
         <module name="demos" />
         <module name="design_pattern" />
         <module name="excel" />
+        <module name="ftp" />
         <module name="java_mail" />
         <module name="linux_io" />
         <module name="msg" />
@@ -22,6 +23,7 @@
       <module name="demos" target="1.7" />
       <module name="design_pattern" target="1.8" />
       <module name="excel" target="1.8" />
+      <module name="ftp" target="1.8" />
       <module name="io" target="1.8" />
       <module name="java_mail" target="1.8" />
       <module name="linux_io" target="1.8" />
